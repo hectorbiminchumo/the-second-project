@@ -8,6 +8,16 @@ exports.home = async (req, res) =>{
 
 }
 
+exports.signOption = async(req,res)=>{
+
+    res.render("sign-option")
+
+
+}
+
+
+
+
 exports.catalogo = async (req, res) =>{
 
     res.render("catalogo")
@@ -16,11 +26,6 @@ exports.catalogo = async (req, res) =>{
 }
 
 
-exports.viewRegister = (req, res) => {
-
-    res.render("signup")
-
-}
 
 exports.register = async (req,res) =>{
     //Obtencion de datos

@@ -37,6 +37,7 @@ app.use("/signup", require("./routes/index"))
 app.use("/login", require("./routes/index"))
 app.use("/users", require("./routes/index"))
 app.use("/catalogo", require("./routes/index"))
+app.use("/sign-option", require("./routes/index"))
 
 
 //4. SERVIDOR
