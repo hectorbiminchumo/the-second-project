@@ -1,3 +1,4 @@
+//indexController
 const User = require("./../models/User")
 const bcryptjs = require("bcryptjs")
 
@@ -8,6 +9,7 @@ exports.home = async (req, res) =>{
 
 }
 
+//muestra los botones para crear cuenta como usuario o jugador
 exports.signOption = async(req,res)=>{
 
     res.render("sign-option")
@@ -25,17 +27,23 @@ exports.catalogo = async (req, res) =>{
 
 }
 
+//muestra formulario
+exports.viewUserRegister = async (req, res) =>{
+    res.render("signup-user")
+}
 
 
-exports.register = async (req,res) =>{
+//Se envían los datos a BD
+exports.userRegister = async (req,res) =>{
     //Obtencion de datos
     const email = req.body.email
+    const usuario = req.body.usuario
     const password = req.body.password
 
     //Validacion
-    if(!email || !password){
-        res.render("signup", {
-            errorMessage: "Ingresar correctamente el correo y contrasena"
+    if(!email || !password || !usuario){
+        res.render("signup-user", {
+            errorMessage: "Ingresar correctamente las credenciales"
         })
         return
     }
@@ -44,7 +52,7 @@ exports.register = async (req,res) =>{
 
     const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/
     if(!regex.test(password)){
-        res.render("signup", {
+        res.render("signup-user", {
             errorMessage:"Tu password debe contener 6 caracteres, minimo un numero y una mayuscula."
         })
         return
@@ -55,38 +63,42 @@ exports.register = async (req,res) =>{
     const salt = await bcryptjs.genSalt(10)
     const passwordEncriptado = await bcryptjs.hash(password, salt)
     const newUser = await User.create({
-        email, passwordEncriptado
+        email, usuario, passwordEncriptado
     })
     console.log(newUser);
     //Redireccion a login
-    res.redirect("/login")
+    res.redirect("/")
     }catch (error){
         console.log(error);
-        res.status(500).render("signup", {
+        res.status(500).render("signup-user", {
             errorMessage: "Hubo un error"
         })
     }
 }
 
-    exports.viewLogin = async(req,res) => {
-        res.render("login")
-    }
 
-    exports.login = async (req,res) => {
+
+
+//muestra formulario de login
+    exports.viewUserLogin = async(req,res) => {
+        res.render("login-user")
+    }
+// se envían los datos a BD
+    exports.userLogin = async (req,res) => {
         try{
             const email = req.body.email
             const password = req.body.password
 
             const foundUser = await User.findOne({email})
             if(!foundUser){
-                res.render("login", {
+                res.render("login-user", {
                     errorMessage: "Ingrese los datos correctamente"
                 })
                 return
             }
             const verifiedPass = await bcryptjs.compareSync(password, foundUser.passwordEncriptado)
             if(!verifiedPass){
-                res.render("login", {
+                res.render("login-user", {
                     errorMessage: "Email o password erroneos"
                 })
                 return
@@ -95,7 +107,7 @@ exports.register = async (req,res) =>{
                 _id: foundUser._id,
                 email: foundUser.email,
             }
-            res.redirect("/users/profile")
+            res.redirect("/")
         }catch(error){
             console.log(error)
         }

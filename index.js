@@ -1,3 +1,5 @@
+//index.js principal
+
 //1. IMPORTACIONES
 const express = require("express")
 const app      = express()
@@ -33,12 +35,12 @@ connectDB()
 // })
 
 app.use("/", require("./routes/index"))
-app.use("/signup", require("./routes/index"))
+app.use("/signup-user", require("./routes/index"))
 app.use("/login", require("./routes/index"))
 app.use("/users", require("./routes/index"))
 app.use("/catalogo", require("./routes/index"))
 app.use("/sign-option", require("./routes/index"))
-
+app.use("/signup-player", require("./routes/index"))
 
 //4. SERVIDOR
 app.listen(process.env.PORT, () =>{
