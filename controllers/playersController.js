@@ -1,7 +1,7 @@
 //playersController.js
 
 const Player = require("../models/Player")
-const bcrypjs = require("bcryptjs")
+const bcryptjs = require("bcryptjs")
 
 
 exports.viewPlayerRegister = async (req,res) => {
@@ -12,7 +12,7 @@ exports.viewPlayerRegister = async (req,res) => {
 
 exports.playerRegister = async(req, res) =>{
 
-    console.log(req.body);
+    
 
 //OBTENCION DE DATOS DEL FORMULARIO
     const email = req.body.email
@@ -21,6 +21,7 @@ exports.playerRegister = async(req, res) =>{
     const edad = req.body.edad
     const posicion = req.body.posicion
     const ciudad = req.body.ciudad
+    const tarifa = req.body.tarifa
     const pierna = req.body.pierna
     const descripcion = req.body.descripcion
     const photoUrl = req.body.photoUrl
@@ -46,12 +47,13 @@ exports.playerRegister = async(req, res) =>{
     }
 //ENCRIPTADO DE PASSWORD
     try{
-        const salt = await bcrypjs.genSalt(10)
-        const passwordEncriptado= await bcrypjs.hash(password, salt)
+        const salt = await bcryptjs.genSalt(10)
+        const passwordEncriptado= await bcryptjs.hash(password, salt)
         const newPlayer = await Player.create({
             email, usuario, edad, posicion, ciudad, pierna, descripcion, photoUrl, campeonatos,
-            passwordEncriptado
+            passwordEncriptado, tarifa
         })
+        console.log(passwordEncriptado)
         console.log(newPlayer);
 
         //REDIRECCION DE USUARIO
