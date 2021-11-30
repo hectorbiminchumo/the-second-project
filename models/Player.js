@@ -23,7 +23,7 @@ const playerSchema = mongoose.Schema({
     },
 
     passwordEncriptado: String,
-    Edad: Number,
+    Edad: {type:Number, min:18},
     Posición: String,
     Ciudad: String,
     Pierna: String,
@@ -36,7 +36,7 @@ const playerSchema = mongoose.Schema({
 })
 
 //Modelo
-const User = mongoose.model("User", playerSchema)
+const Player = mongoose.model("Player", playerSchema)
 
 //Exportación
 module.exports = Player

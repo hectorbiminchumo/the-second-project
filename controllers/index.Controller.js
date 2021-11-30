@@ -6,7 +6,6 @@ exports.home = async (req, res) =>{
 
     res.render("home")
 
-
 }
 
 //muestra los botones para crear cuenta como usuario o jugador
@@ -14,10 +13,7 @@ exports.signOption = async(req,res)=>{
 
     res.render("sign-option")
 
-
 }
-
-
 
 
 exports.catalogo = async (req, res) =>{
@@ -27,13 +23,13 @@ exports.catalogo = async (req, res) =>{
 
 }
 
-//muestra formulario
+//muestra formulario para crear cuenta de usuario
 exports.viewUserRegister = async (req, res) =>{
     res.render("signup-user")
 }
 
 
-//Se envían los datos a BD
+//Se envían los datos a BD de usuarios para registar cuenta
 exports.userRegister = async (req,res) =>{
     //Obtencion de datos
     const email = req.body.email
@@ -67,7 +63,7 @@ exports.userRegister = async (req,res) =>{
     })
     console.log(newUser);
     //Redireccion a login
-    res.redirect("/")
+    res.redirect("/login-user")
     }catch (error){
         console.log(error);
         res.status(500).render("signup-user", {
@@ -76,7 +72,10 @@ exports.userRegister = async (req,res) =>{
     }
 }
 
-
+//muesta los botones para loggearse como usuario o jugador
+exports.loginOption = async(req, res) =>{
+    res.render("login-option")
+}
 
 
 //muestra formulario de login
@@ -84,36 +83,36 @@ exports.userRegister = async (req,res) =>{
         res.render("login-user")
     }
 // se envían los datos a BD
-    exports.userLogin = async (req,res) => {
-        try{
-            const email = req.body.email
-            const password = req.body.password
+exports.userLogin = async (req,res) => {
+    try{
+        const email = req.body.email
+        const password = req.body.password
 
-            const foundUser = await User.findOne({email})
-            if(!foundUser){
-                res.render("login-user", {
-                    errorMessage: "Ingrese los datos correctamente"
-                })
-                return
-            }
-            const verifiedPass = await bcryptjs.compareSync(password, foundUser.passwordEncriptado)
-            if(!verifiedPass){
-                res.render("login-user", {
-                    errorMessage: "Email o password erroneos"
-                })
-                return
-            }
-            req.session.currentUser = {
-                _id: foundUser._id,
-                email: foundUser.email,
-            }
-            res.redirect("/")
-        }catch(error){
-            console.log(error)
+        const foundUser = await User.findOne({email})
+        if(!foundUser){
+            res.render("login-user", {
+                errorMessage: "Ingrese los datos correctamente"
+            })
+            return
         }
-
-
+        const verifiedPass = await bcryptjs.compareSync(password, foundUser.passwordEncriptado)
+        if(!verifiedPass){
+            res.render("login-user", {
+                errorMessage: "Email o password erroneos"
+            })
+            return
+        }
+        // req.session.currentUser = {
+        //     _id: foundUser._id,
+        //     email: foundUser.email,
+        // }
+        res.redirect("/users/profile")
+    }catch(error){
+        console.log(error)
     }
+
+
+}
 
     exports.logout = async (req, res) => {
         req.session.destroy((error) => {
@@ -125,3 +124,17 @@ exports.userRegister = async (req,res) =>{
 
         })
     }
+
+    
+
+
+
+
+   
+
+
+ 
+
+
+
+   

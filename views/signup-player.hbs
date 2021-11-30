@@ -88,7 +88,7 @@
         </div>
 
         <div class="mt-6">
-          <form action="#" method="POST" class="space-y-6">
+          <form action="signup-player" method="POST" class="space-y-6">
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700">
                 Email address
@@ -99,11 +99,75 @@
             </div>
 
             <div class="space-y-1">
+              <label for="username" class="block text-sm font-medium text-gray-700">
+                Username
+              </label>
+              <div class="mt-1">
+                <input id="usuario" name="usuario" type="text" autocomplete="usuario" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
               <label for="password" class="block text-sm font-medium text-gray-700">
                 Password
               </label>
               <div class="mt-1">
                 <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label for="edad" class="block text-sm font-medium text-gray-700">
+                Age
+              </label>
+              <div class="mt-1">
+                <input id="edad" name="edad" type="number" autocomplete="edad" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label for="posicion" class="block text-sm font-medium text-gray-700">
+                Position
+              </label>
+              <div class="mt-1">
+                <input id="posicion" name="posicion" type="text" autocomplete="posicion" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label for="ciudad" class="block text-sm font-medium text-gray-700">
+                City
+              </label>
+              <div class="mt-1">
+                <input id="ciudad" name="ciudad" type="text" autocomplete="ciudad" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label for="pierna" class="block text-sm font-medium text-gray-700">
+                Leg
+              </label>
+              <div class="mt-1">
+                <input id="pierna" name="pierna" type="text" autocomplete="pierna" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label for="descripcion" class="block text-sm font-medium text-gray-700">
+                Description
+              </label>
+              <div class="mt-1">
+                <input id="descripcion" name="descripcion" type="text" autocomplete="descripcion" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label for="photoUrl" class="block text-sm font-medium text-gray-700">
+                Picture
+              </label>
+              <div class="mt-1">
+                <input id="photoUrl" name="photooUrl" type="text" autocomplete="descripcion" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label for="campeonatos" class="block text-sm font-medium text-gray-700">
+                Championships
+              </label>
+              <div class="mt-1">
+                <input id="campeonatos" name="campeonatos" type="text" autocomplete="descripcion" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
               </div>
             </div>
 
@@ -133,6 +197,6 @@
     </div>
   </div>
   <div class="hidden lg:block relative w-0 flex-1">
-    <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80" alt="">
+    <img id="back-signup-player"class="absolute inset-0 h-full w-full object-cover" src="http://www.covenanthousebc.org/wp-content/uploads/2016/09/soccer-ball-clipart-no-background-clipart-panda-free-clipart-SqKzPr-clipart.jpg" alt="">
   </div>
 </div>
