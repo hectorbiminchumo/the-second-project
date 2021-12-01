@@ -124,3 +124,14 @@ exports.viewPlayerList = async (req, res) => {
         players: allPlayers
     })
 }
+
+exports.viewSinglePlayer = async (req, res) => {
+    const singlePlayerID = req.params.playerID
+    
+    const getThePlayer = await Player.findById(singlePlayerID)
+    res.render("players/single", {
+        player: getThePlayer
+    })
+
+
+}
