@@ -13,7 +13,6 @@ router.get("/", indexController.home)
 router.get("/sign-option", indexController.signOption)
 router.get("/signup-user", indexController.viewUserRegister )
 router.get("/signup-player", playersController.viewPlayerRegister)
-
 //enviar datos a BD
 router.post("/signup-user", indexController.userRegister)
 router.post("/signup-player", playersController.playerRegister)
@@ -22,14 +21,17 @@ router.post("/signup-player", playersController.playerRegister)
 //Loggear usuario
 //mostrar login
 router.get("/login-user", indexController.viewUserLogin)
+router.get("/login-player", playersController.viewPlayerLogin)
 router.get("/login-option", indexController.loginOption)
 router.get("/signup-player",playersController.viewPlayerLogin)
-
+router.get("/players/player-profile", playersController.profile)
 //Enviar datos a BD
 
 router.post("/login-user", indexController.userLogin)
 router.post("/login-player", playersController.playerLogin)
 
+//Listado de jugadores
+router.get("/players", playersController.viewPlayerList)
 //Logout
 router.get("/logout", indexController.logout)
 

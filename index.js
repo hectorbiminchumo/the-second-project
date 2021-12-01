@@ -55,6 +55,7 @@ app.use("/users", require("./routes/users"))
 app.use("/catalogo", require("./routes/index"))
 app.use("/sign-option", require("./routes/index"))
 app.use("/signup-player", require("./routes/index"))
+app.use("/players", require("./routes/index"))
 
 //4. SERVIDOR
 app.listen(process.env.PORT, () =>{

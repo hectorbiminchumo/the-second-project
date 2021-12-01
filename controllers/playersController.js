@@ -80,7 +80,7 @@ exports.playerLogin = async(req, res) =>{
         const password = req.body.password
 
         //2. VALIDACION DE USUARIO ENCONTRADO EN BD
-        const foundPlayer = await Player.findOneAndRemove({email})
+        const foundPlayer = await Player.findOne({email})
 
         if(!foundPlayer){
             res.render("login-player",{
@@ -91,7 +91,7 @@ exports.playerLogin = async(req, res) =>{
 
         //3. VALIDACION DE CONTRASENA
         //COMPARAR LA CONTRASENA DEL FORUMULARIO(1) VS LA CONTRASENA DE LA BD (2)
-        const verifiedPass = awaitbcryptjs.compareSync(password.foundPlayer.passwordEncriptado)
+        const verifiedPass = await bcryptjs.compareSync(password,foundPlayer.passwordEncriptado)
         
         if(!verifiedPass){
             res.render("login-player",{
@@ -101,15 +101,26 @@ exports.playerLogin = async(req, res) =>{
         }
         //4. GENERAR LA SESION
         //PERSISTENCIA DE IDENTIDAD
-        req.session.currentPlayer = {
-            _id: foundPlayer._id,
-            email: foundPlayer.email,
-            mensaje:"LO LOGRAMOS"
-        }
+        // req.session.currentPlayer = {
+        //     _id: foundPlayer._id,
+        //     email: foundPlayer.email,
+        //     mensaje:"LO LOGRAMOS"
+        // }
         res.redirect("/players/player-profile")
     }catch(error){
         console.log(error)
     }
 
 
+}
+
+exports.profile = async (req,res) => {
+    res.render("players/player-profile")
+}
+
+exports.viewPlayerList = async (req, res) => {
+    const allPlayers = await Player.find({})
+    res.render("players/list", {
+        players: allPlayers
+    })
 }
