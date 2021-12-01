@@ -1,3 +1,12 @@
-body{
-    background-color: red;
+
+
+#player-name{
+    display: flex;
+    flex-direction: row;
+    border-style: solid 2px red;
+    justify-content: stretch;
+}
+
+#lastname{
+    width: 210px;
 }

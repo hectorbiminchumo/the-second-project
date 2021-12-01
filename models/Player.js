@@ -24,10 +24,10 @@ const playerSchema = mongoose.Schema({
 
     passwordEncriptado: String,
     edad: Number,
-    posición: String,
+    posicion: String,
     ciudad: String,
     pierna: String,
-    descripción: String,
+    descripcion: String,
     tarifa: Number,
     photoUrl: String,
     campeonatos: String,

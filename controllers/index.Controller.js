@@ -102,10 +102,10 @@ exports.userLogin = async (req,res) => {
             })
             return
         }
-        // req.session.currentUser = {
-        //     _id: foundUser._id,
-        //     email: foundUser.email,
-        // }
+        req.session.currentUser = {
+            _id: foundUser._id,
+            email: foundUser.email,
+        }
         res.redirect("/users/profile")
     }catch(error){
         console.log(error)
