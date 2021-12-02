@@ -4,6 +4,8 @@ const bcryptjs = require("bcryptjs")
 
 exports.home = async (req, res) =>{
 
+   
+
     res.render("home")
 
 }

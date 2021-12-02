@@ -5,6 +5,7 @@ const bcryptjs = require("bcryptjs")
 
 
 exports.viewPlayerRegister = async (req,res) => {
+    
     res.render("signup-player")
 }
 
@@ -103,6 +104,7 @@ exports.playerLogin = async(req, res) =>{
         //PERSISTENCIA DE IDENTIDAD
         req.session.currentPlayer = {
             _id: foundPlayer._id,
+            usuario: foundPlayer.usuario,
             email: foundPlayer.email,
             mensaje:"LO LOGRAMOS"
         }
@@ -115,6 +117,7 @@ exports.playerLogin = async(req, res) =>{
 }
 
 exports.profile = async (req,res) => {
+    
     res.render("players/player-profile")
 }
 
@@ -129,12 +132,28 @@ exports.viewSinglePlayer = async (req, res) => {
     const singlePlayerID = req.params.playerID
     
     const getThePlayer = await Player.findById(singlePlayerID)
+
+    console.log(getThePlayer);
     res.render("players/single", {
         player: getThePlayer
     })
 
 
 }
+
+// exports.viewEditPlayer = async(req,res)=>{
+//     console.log(req.params)
+
+//     const playerID = req.params.playerID
+
+//     const foundPlayer = await  Player.findById(playerID)
+//     res.render("players/update")
+
+
+
+
+
+
 
 exports.logoutPlayer = async (req, res) => {
     req.session.destroy((error) => {

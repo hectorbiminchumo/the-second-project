@@ -32,9 +32,18 @@ router.get("/players/player-profile",playersController.profile)
 router.post("/login-user", routeGuard.usuarioNoLoggeado, indexController.userLogin)
 router.post("/login-player", routeGuard.usuarioNoLoggeado, playersController.playerLogin)
 
-//Listado de jugadores
+
+//READ
+//Lectura de jugadores creados
 router.get("/players", playersController.viewPlayerList)
+//Lectura de un jugador especifico
 router.get("/players/:playerID", playersController.viewSinglePlayer)
+
+//EDIT
+
+
+//DELETE
+
 //Logout
 router.post("/logout", routeGuard.usuarioLoggeado, indexController.logout)
 router.post("/logoutPlayer", playersController.logoutPlayer)
