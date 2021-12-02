@@ -36,7 +36,7 @@ module.exports = {
     usuarioNoLoggeado
 }
 
-//PLAYER ROUTEGUARD
+// // PLAYER ROUTEGUARD
 
 // //AREAS PRIVADAS - EL USUARIO DEBE ESTAR LOGGEADO PARA ACCEDER
 // const playerLoggeado = (req, res,next) => {

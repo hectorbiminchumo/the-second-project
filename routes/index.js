@@ -17,7 +17,7 @@ router.get("/signup-user", routeGuard.usuarioNoLoggeado, indexController.viewUse
 router.get("/signup-player", routeGuard.usuarioNoLoggeado,playersController.viewPlayerRegister)
 //enviar datos a BD
 router.post("/signup-user", routeGuard.usuarioNoLoggeado, indexController.userRegister)
-router.post("/signup-player", routeGuard.usuarioNoLoggeado, playersController.playerRegister)
+router.post("/signup-player", playersController.playerRegister)
 
 
 //Loggear usuario
@@ -26,7 +26,7 @@ router.get("/login-user", routeGuard.usuarioNoLoggeado, indexController.viewUser
 router.get("/login-player", routeGuard.usuarioNoLoggeado, playersController.viewPlayerLogin)
 router.get("/login-option", routeGuard.usuarioNoLoggeado, indexController.loginOption)
 // router.get("/signup-player",playersController.viewPlayerLogin)//donde me lleva
-router.get("/players/player-profile", playersController.profile)
+router.get("/players/player-profile",playersController.profile)
 //Enviar datos a BD
 
 router.post("/login-user", routeGuard.usuarioNoLoggeado, indexController.userLogin)
@@ -36,7 +36,8 @@ router.post("/login-player", routeGuard.usuarioNoLoggeado, playersController.pla
 router.get("/players", playersController.viewPlayerList)
 router.get("/players/:playerID", playersController.viewSinglePlayer)
 //Logout
-router.get("/logout", routeGuard.usuarioLoggeado, indexController.logout)
+router.post("/logout", routeGuard.usuarioLoggeado, indexController.logout)
+router.post("/logoutPlayer", playersController.logoutPlayer)
 
 
 

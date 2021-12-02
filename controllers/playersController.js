@@ -101,11 +101,11 @@ exports.playerLogin = async(req, res) =>{
         }
         //4. GENERAR LA SESION
         //PERSISTENCIA DE IDENTIDAD
-        // req.session.currentPlayer = {
-        //     _id: foundPlayer._id,
-        //     email: foundPlayer.email,
-        //     mensaje:"LO LOGRAMOS"
-        // }
+        req.session.currentPlayer = {
+            _id: foundPlayer._id,
+            email: foundPlayer.email,
+            mensaje:"LO LOGRAMOS"
+        }
         res.redirect("/players/player-profile")
     }catch(error){
         console.log(error)
@@ -134,4 +134,15 @@ exports.viewSinglePlayer = async (req, res) => {
     })
 
 
+}
+
+exports.logoutPlayer = async (req, res) => {
+    req.session.destroy((error) => {
+        if(error){
+            console.log(error);
+            return
+        }
+        res.redirect("/")
+
+    })
 }

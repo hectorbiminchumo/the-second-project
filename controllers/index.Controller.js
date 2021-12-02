@@ -104,6 +104,7 @@ exports.userLogin = async (req,res) => {
         }
         req.session.currentUser = {
             _id: foundUser._id,
+            usuario: foundUser.usuario,
             email: foundUser.email,
         }
         res.redirect("/users/profile")
