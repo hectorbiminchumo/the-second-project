@@ -1,104 +1,6 @@
 
 
-{{!-- header.hbs --}}
-<div class="relative bg-gray-50">
-		<div class="relative bg-white shadow">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6">
-				<div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-					
-					<div class="-mr-2 -my-2 md:hidden">
-						<button type="button"
-							class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-							aria-expanded="false">
-							<span class="sr-only">Open menu</span>
-							<!-- Heroicon name: outline/menu -->
-							<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-								stroke="currentColor" aria-hidden="true">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M4 6h16M4 12h16M4 18h16" />
-							</svg>
-						</button>
-					</div>
-					
 
-					{{#if currentUser}}
-					<div class="flex justify-start lg:w-0 lg:flex-1">
-						<a href="/">
-							<span class="sr-only">Workflo</span>
-							<img class="h-8 w-auto sm:h-10"
-								src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
-						</a>
-						
-
-						<a href="/users/profile" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-							Profile
-						</a>
-					</div>
-					<form action="/logout"  method="POST">
-					<button type="submit"
-							class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-							Cerrar sesión
-						</button>
-					
-					</form>
-						
-						 
-						{{#if currentPlayer}}
-		<div class="flex justify-start lg:w-0 lg:flex-1">
-						<a href="/">
-							<span class="sr-only">Workflow</span>
-							<img class="h-8 w-auto sm:h-10"
-								src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
-						</a>
-						
-
-						<a href="/players/player-profile" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-							Profile
-						</a>
-					</div>
-
-					<form action="/logoutPlayer"  method="POST">
-					<button type="submit"
-							class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-							Cerrar sesión
-						</button>
-					
-					</form>
-	{{/if}} 
-					
-					 {{else}}
-					
-					 <div class="flex justify-start lg:w-0 lg:flex-1">
-						<a href="/">
-							<span class="sr-only">Pichanga de Viernes</span>
-							<img class="h-8 w-auto sm:h-10"
-								src="/images/Logo.png" alt="">
-						</a>
-					</div> 
-					<div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-						<a href="/players" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-							Players
-						</a>
-						<a href="/login-option" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-							Login
-						</a>
-
-						<a href="/sign-option"
-							class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-							Signup
-						</a>
-
-						{{/if}}
-						
-						
-				
-
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>  
 
 	{{!-- NEW NAV --}}
 
@@ -135,7 +37,71 @@
         </div>
         <div class="flex-shrink-0 flex items-center">
           <img id="logo"class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-          <img class="hidden lg:block h-8 w-auto" src="/images/Logo.png" alt="Workflow">
+<div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+
+   <a id="logo"href="/"><img class="hidden lg:block h-8 w-auto" src="/images/Logo.png" alt="logo"></a>
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+
+          <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+
+          <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+
+          <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+        </div>
+        {{#if currentUser}}
+
+
+            {{!-- home 
+            players
+            perfil usuario 
+            logout  --}}
+
+
+          
+
+        </div>
+        
+      </div>
+	  
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <a href="/players">
+          <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+            <!-- Heroicon name: solid/plus-sm -->
+            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            <span>Players</span>
+          </button></a>
+          <a href="/users/profile">
+          <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+            <!-- Heroicon name: solid/plus-sm -->
+            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            <span>Profile</span>
+          </button></a>
+
+        <form action="/logout"  method="POST">
+          <button type="submit"
+              class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+              Logout
+            </button>
+          
+          </form>
+
+      </div>
+      
+      {{#if currentPlayer}}
+
+        {{!-- home 
+            players
+            perfil usuario 
+            logout  --}}
+
+            <a id="logo"href="/"><img class="hidden lg:block h-8 w-auto" src="/images/Logo.png" alt="logo"></a>
+
         </div>
         <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
@@ -148,18 +114,89 @@
           <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
         </div>
       </div>
-	  <a href="/players" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-							Players
-						</a>
+	  
       <div class="flex items-center">
         <div class="flex-shrink-0">
+        
+          <a href="/players/player-profile">
           <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
             <!-- Heroicon name: solid/plus-sm -->
             <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
             </svg>
-            <span>New Job</span>
-          </button>
+            <span>Profile</span>
+          </button></a>
+          </div>
+          </div>
+
+
+
+        <form action="/logoutPlayer"  method="POST">
+          <button type="submit"
+              class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+              Logout
+            </button>
+          
+          </form>
+          {{/if}}
+
+          {{else}}
+            {{!-- home 
+            players 
+            login 
+            signup  --}}
+
+           
+            <div id="header-pichanga"class="flex items-center">
+        <div class="flex-shrink-0">
+        
+          <a href="/players">
+          <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+            <!-- Heroicon name: solid/plus-sm -->
+            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            <span>Players</span>
+          </button></a>
+          <a href="/login-option">
+          <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+            <!-- Heroicon name: solid/plus-sm -->
+            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            <span>Login</span>
+          </button></a>
+          <a href="/sign-option">
+          <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+            <!-- Heroicon name: solid/plus-sm -->
+            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            <span>Signup</span>
+          </button></a>
+          </div>
+          </div>
+
+
+          {{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+          
+
+          
         </div>
         <div class="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
           <button type="button" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -175,10 +212,10 @@
             <div>
               <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="sr-only">Open user menu</span>
-                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                <img class="h-8 w-8 rounded-full" src="/images/login-needed.png" alt="">
               </button>
             </div>
-
+{{!-- 
             <!--
               Dropdown menu, show/hide based on menu state.
 
@@ -195,9 +232,9 @@
 
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
 
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+              <a href="/logout" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
