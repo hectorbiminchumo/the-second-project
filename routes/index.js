@@ -51,12 +51,14 @@ router.get("/players", playersController.viewPlayerList)
 //Lectura de un jugador especifico
 router.get("/players/:playerID", playersController.viewSinglePlayer)
 
-//EDIT
+//EDIT PLAYER
 
 router.get("/players/:playerID/edit", playersController.viewEditPlayer)
+router.post("/players/:playerID/edit", playersController.editPlayer)
 
 
-//DELETE
+//DELETE PLAYER
+router.post("/players/:playerID/delete", playersController.deletePlayer)
 
 //Logout
 router.post("/logout", routeGuard.usuarioLoggeado, indexController.logout)

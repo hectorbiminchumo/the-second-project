@@ -6,14 +6,29 @@
 Este es el id: {{player._id}}
 
 <form action="/players/{{player._id}}/edit" method="POST">
-	<label>Rate</label>
-	<input type="number" name="rate" value="{{player.tarifa}}" />
+	
+    <label>Description</label>
+	<textarea type="text" name="descripcion">
+		{{player.descripcion}}
+	</textarea>
+
+	<br />
+    <label>Rate</label>
+	<textarea type="number" name="tarifa">
+		{{player.tarifa}}
+	</textarea>
 
 	<br />
 
-	<label>ciudad</label>
+	<label>City</label>
 	<textarea type="text" name="ciudad">
 		{{player.ciudad}}
+	</textarea>
+
+	<br />
+	<label>Championships</label>
+	<textarea type="text" name="campeonatos">
+		{{player.campeonatos}}
 	</textarea>
 
 	<br />

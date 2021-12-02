@@ -165,6 +165,48 @@ exports.viewEditPlayer = async(req,res)=>{
     })
 }
 
+exports.editPlayer = async(req,res) =>{
+
+        //1. ID del player
+    const playerID = req. params.playerID
+
+        //2. LOS NUEVOS CAMBIOS DEL FORMULARIO
+    const tarifa = req.body.tarifa
+    const ciudad = req.body.ciudad
+    const descripcion =  req.body.descripcion
+    const photoUrl = req.body.photoUrl
+    const campeonatos = req.body.campeonatos
+
+    console.log(playerID);
+    console.log(tarifa,ciudad,descripcion,photoUrl,campeonatos);
+
+    //3. REALIZAR LA ACTUALIZACION DE DATOS EN LA BD
+    const updatedPlayer = await Player.findByIdAndUpdate(playerID, {tarifa, ciudad,descripcion, photoUrl, campeonatos},
+        {new:true})
+
+        console.log(updatedPlayer);
+
+        res.redirect(`/players/player-profile/${updatedPlayer._id}`)
+
+
+}
+
+exports.deletePlayer = async (req, res) => {
+
+    //1. IDENTIFICAR EL JUADOR QUE QUIERO BORRAR
+    const playerID = req.params.playerID
+
+    //2. REALIZAMOS BORRADO EN BD
+    const deletedPlayer = await Player.findByIdAndDelete(playerID)
+
+    console.log("Player deleted", deletedPlayer);
+
+    //3. REDIRECCION
+    res.redirect("/")
+
+
+}
+
 
 
 

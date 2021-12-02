@@ -97,7 +97,7 @@ Perfil de usuario
                 <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
                   <input type="radio" name="size-choice" value="18L" class="sr-only" aria-labelledby="size-choice-0-label" aria-describedby="size-choice-0-description">
                   <p id="size-choice-0-label" class="text-base font-medium text-gray-900">
-                    <a href="/update-player">Editar perfil</a>
+                    <a href="/players/{{this._id}}/edit">Editar perfil</a>
                   </p>
                   <p id="size-choice-0-description" class="mt-1 text-sm text-gray-500">
                     Editar credenciales de tu perfil
@@ -110,10 +110,13 @@ Perfil de usuario
                 </label>
 
                 <!-- Active: "ring-2 ring-indigo-500" -->
+                <form method = "POST" action = "/players/{{this._id}}/delete" ><button>Borrar perfil</button></form>
+
+
                 <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
                   <input type="radio" name="size-choice" value="20L" class="sr-only" aria-labelledby="size-choice-1-label" aria-describedby="size-choice-1-description">
                   <p id="size-choice-1-label" class="text-base font-medium text-gray-900">
-                    Borrar Perfil
+                   
                   </p>
                   <p id="size-choice-1-description" class="mt-1 text-sm text-gray-500">
                     Borrar tu perfil. Este cambio no se puede revertir.
@@ -137,5 +140,5 @@ Perfil de usuario
     </div>
   </div>
 </div>
-
 {{/with}}
+
