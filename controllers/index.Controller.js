@@ -84,6 +84,20 @@ exports.loginOption = async(req, res) =>{
     exports.viewUserLogin = async(req,res) => {
         res.render("login-user")
     }
+
+//perfil único de usuario
+exports.viewProfile = async (req,res) => {
+    const singleUserID = req.params.userID
+    const getTheUser = await User.findById(singleUserID)
+    res.render("users/profile", {
+        user: getTheUser
+    })
+        
+    }
+
+
+
+
 // se envían los datos a BD
 exports.userLogin = async (req,res) => {
     try{
@@ -109,7 +123,7 @@ exports.userLogin = async (req,res) => {
             usuario: foundUser.usuario,
             email: foundUser.email,
         }
-        res.redirect("/users/profile")
+        res.redirect(`/users/profile/${foundUser._id}`)
     }catch(error){
         console.log(error)
     }

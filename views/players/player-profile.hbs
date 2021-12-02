@@ -1,1 +1,141 @@
-player profile
+Perfil de usuario
+{{#with player}}
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/aspect-ratio'),
+    ],
+  }
+  ```
+-->
+<div class="bg-white">
+  <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+    <!-- Product details -->
+    <div class="lg:max-w-lg lg:self-end">
+      <nav aria-label="Breadcrumb">
+        <ol role="list" class="flex items-center space-x-2">
+          <li>
+            <div class="flex items-center text-sm">
+              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">
+                
+              </a>
+
+              
+            </div>
+          </li>
+
+          <li>
+            <div class="flex items-center text-sm">
+              <a href=
+              </a>
+            </div>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="mt-4">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{this.usuario}}</h1>
+      </div>
+
+      <section aria-labelledby="information-heading" class="mt-4">
+        <h2 id="information-heading" class="sr-only">Product information</h2>
+
+        <div class="flex items-center">
+          <p class="text-lg text-gray-900 sm:text-xl">Email: {{this.email}}</p>
+
+          <div class="ml-4 pl-4 border-l border-gray-300">
+            <h2 class="sr-only">Reviews</h2>
+            <div class="flex items-center">
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 space-y-6">
+          <p class="text-base text-gray-500">Bienvenido a tu perfil de usuario. Aquí podrás editar tus credenciales y borrar tu perfil.</p>
+        </div>
+
+        <div class="mt-6 flex items-center">
+          <!-- Heroicon name: solid/check -->
+          <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          
+        </div>
+      </section>
+    </div>
+
+    <!-- Product image -->
+    <div class="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
+      <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+        <img src="https://s03.s3c.es/imag/_v0/770x420/4/0/d/Smartphone.jpg">
+      </div>
+    </div>
+
+    <!-- Product form -->
+    <div class="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+      <section aria-labelledby="options-heading">
+        <h2 id="options-heading" class="sr-only">Product options</h2>
+
+        <form>
+          <div class="sm:flex sm:justify-between">
+            <!-- Size selector -->
+            <fieldset>
+              <legend class="block text-sm font-medium text-gray-700">
+                Cambiar Perfil
+              </legend>
+              <div class="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
+                  <input type="radio" name="size-choice" value="18L" class="sr-only" aria-labelledby="size-choice-0-label" aria-describedby="size-choice-0-description">
+                  <p id="size-choice-0-label" class="text-base font-medium text-gray-900">
+                    <a href="/update-player">Editar perfil</a>
+                  </p>
+                  <p id="size-choice-0-description" class="mt-1 text-sm text-gray-500">
+                    Editar credenciales de tu perfil
+                  </p>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <div class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                </label>
+
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
+                  <input type="radio" name="size-choice" value="20L" class="sr-only" aria-labelledby="size-choice-1-label" aria-describedby="size-choice-1-description">
+                  <p id="size-choice-1-label" class="text-base font-medium text-gray-900">
+                    Borrar Perfil
+                  </p>
+                  <p id="size-choice-1-description" class="mt-1 text-sm text-gray-500">
+                    Borrar tu perfil. Este cambio no se puede revertir.
+                  </p>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <div class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          
+          <div class="mt-10">
+            
+          </div>
+          
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+
+{{/with}}

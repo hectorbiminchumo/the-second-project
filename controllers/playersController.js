@@ -58,7 +58,7 @@ exports.playerRegister = async(req, res) =>{
         console.log(newPlayer);
 
         //REDIRECCION DE USUARIO
-        res.redirect("login-player")
+        res.redirect(`/players/player-profile/${foundPlayer._id}`)
     }catch(error){
         console.log(error);
 
@@ -71,6 +71,9 @@ exports.playerRegister = async(req, res) =>{
 exports.viewPlayerLogin = async(req,res) => {
     res.render("login-player")
 }
+
+
+
 
 exports.playerLogin = async(req, res) =>{
 
@@ -108,17 +111,27 @@ exports.playerLogin = async(req, res) =>{
             email: foundPlayer.email,
             mensaje:"LO LOGRAMOS"
         }
-        res.redirect("/players/player-profile")
+        res.redirect(`/players/player-profile/${foundPlayer._id}`)
     }catch(error){
         console.log(error)
     }
 
 
 }
+//perfil único de usuario
+exports.viewPlayerProfile = async (req,res) => {
+    const playerID = req.params.playerID
+    const getThePlayer = await Player.findById(playerID)
+    res.render("players/player-profile", {
+        player: getThePlayer
+    })
+    
+        
+    }
 
 exports.profile = async (req,res) => {
     
-    res.render("players/player-profile")
+    res.render(`players/player-profile`)
 }
 
 exports.viewPlayerList = async (req, res) => {
@@ -141,14 +154,16 @@ exports.viewSinglePlayer = async (req, res) => {
 
 }
 
-// exports.viewEditPlayer = async(req,res)=>{
-//     console.log(req.params)
+exports.viewEditPlayer = async(req,res)=>{
+    console.log(req.params)
 
-//     const playerID = req.params.playerID
+    const playerID = req.params.playerID
 
-//     const foundPlayer = await  Player.findById(playerID)
-//     res.render("players/update")
-
+    const foundPlayer = await  Player.findById(playerID)
+    res.render("players/update-player",{
+        player:foundPlayer
+    })
+}
 
 
 

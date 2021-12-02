@@ -1,0 +1,33 @@
+<h2>Update your profile player</h2>
+
+{{!-- ./views/books/edit.hbs --}}
+<h1>Editar player</h1>
+
+Este es el id: {{player._id}}
+
+<form action="/players/{{player._id}}/edit" method="POST">
+	<label>Rate</label>
+	<input type="number" name="rate" value="{{player.tarifa}}" />
+
+	<br />
+
+	<label>ciudad</label>
+	<textarea type="text" name="ciudad">
+		{{player.ciudad}}
+	</textarea>
+
+	<br />
+
+	<label>Photo</label>
+	<input type="text" name="photoUrl" value="{{player.photoUrl}}" />
+
+	<br />
+
+	
+
+	<button>
+		Guardar nuevos cambios
+	</button>
+
+
+</form>

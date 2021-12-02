@@ -49,7 +49,8 @@ app.use((req, res, next) =>{
 
 app.use("/", require("./routes/index"))
 app.use("/users", require("./routes/users"))
-app.use("/catalogo", require("./routes/index"))
+
+
 
 
 //4. SERVIDOR
