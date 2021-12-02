@@ -129,10 +129,10 @@ exports.viewPlayerProfile = async (req,res) => {
         
     }
 
-exports.profile = async (req,res) => {
+// exports.profile = async (req,res) => {
     
-    res.render(`players/player-profile`)
-}
+//     res.render(`players/player-profile`)
+// }
 
 exports.viewPlayerList = async (req, res) => {
     const allPlayers = await Player.find({})

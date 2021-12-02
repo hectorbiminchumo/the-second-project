@@ -22,19 +22,23 @@ router.post("/signup-player", playersController.playerRegister)
 
 //Loggear usuario
 //mostrar login
+router.get("/login-option", routeGuard.usuarioNoLoggeado, indexController.loginOption)
 router.get("/login-user", routeGuard.usuarioNoLoggeado, indexController.viewUserLogin)
 router.get("/login-player", routeGuard.usuarioNoLoggeado, playersController.viewPlayerLogin)
-router.get("/login-option", routeGuard.usuarioNoLoggeado, indexController.loginOption)
 // router.get("/signup-player",playersController.viewPlayerLogin)//donde me lleva
 
 //Perfil de usuario
-router.get("/users/profile/:userID", routeGuard.usuarioNoLoggeado, indexController.viewProfile)
+router.get("/users/profile/:userID", indexController.viewProfile)
+
 
 //Perfil de player
 router.get("/players/player-profile/:playerID", playersController.viewPlayerProfile)
 
 
-router.get("/players/player-profile/:playerID",playersController.profile)
+// router.get("/players/player-profile/:playerID",playersController.profile)
+
+
+
 //Enviar datos a BD
 
 router.post("/login-user", routeGuard.usuarioNoLoggeado, indexController.userLogin)
