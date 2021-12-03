@@ -12,7 +12,7 @@
 }
 
 #header-pichanga{
-    padding-left: 800px;
+    padding-left: 700px;
 }
 
 #logo{
@@ -42,4 +42,8 @@
 }
 #carousel{
     filter: brightness(50%)
+}
+
+#header-title{
+    color: white;
 }
