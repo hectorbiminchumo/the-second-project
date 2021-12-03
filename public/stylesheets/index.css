@@ -47,3 +47,15 @@
 #header-title{
     color: white;
 }
+
+#login-option{
+    padding-left:350px
+}
+
+#sign-option{
+    padding-left:350px
+}
+#login-player{
+   padding-left: 550px;;
+   border:solid 2px red;
+}
