@@ -177,7 +177,7 @@ exports.editPlayer = async(req,res) =>{
     const photoUrl = req.body.photoUrl
     const campeonatos = req.body.campeonatos
 
-    console.log(playerID);
+    
     console.log(tarifa,ciudad,descripcion,photoUrl,campeonatos);
 
     //3. REALIZAR LA ACTUALIZACION DE DATOS EN LA BD
@@ -199,17 +199,21 @@ exports.deletePlayer = async (req, res) => {
     //2. REALIZAMOS BORRADO EN BD
     const deletedPlayer = await Player.findByIdAndDelete(playerID)
 
+    console.log(playerID);
     console.log("Player deleted", deletedPlayer);
 
     //3. REDIRECCION
-    res.redirect("/")
+    req.session.destroy((error) => {
+        if(error){
+            console.log(error);
+            return
+        }
+        res.redirect("/")
+
+    })
 
 
 }
-
-
-
-
 
 
 exports.logoutPlayer = async (req, res) => {

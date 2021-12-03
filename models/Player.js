@@ -24,13 +24,26 @@ const playerSchema = mongoose.Schema({
 
     passwordEncriptado: String,
     edad: Number,
-    posicion: String,
-    ciudad: String,
-    pierna: String,
+    posicion: {
+        type:String,
+        trim: true},
+    ciudad: {
+        type:String,
+        trim: true},
+    pierna: {
+        type:String,
+        trim: true},
     descripcion: String,
-    tarifa: Number,
-    photoUrl: String,
-    campeonatos: String,
+        
+    tarifa: {
+        type:Number,
+        trim: true},
+    photoUrl: {
+        type:String,
+        trim:true},
+    campeonatos: {
+        type:String,
+        trim:true}
 
 
 })
