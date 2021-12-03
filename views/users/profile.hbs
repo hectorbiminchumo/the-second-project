@@ -1,4 +1,4 @@
-Perfil de usuario
+
 {{#with user}}
 <!--
   This example requires Tailwind CSS v2.0+ 
@@ -24,52 +24,37 @@ Perfil de usuario
         <ol role="list" class="flex items-center space-x-2">
           <li>
             <div class="flex items-center text-sm">
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">
-                
-              </a>
-
+              
               
             </div>
           </li>
 
           <li>
             <div class="flex items-center text-sm">
-              <a href=
-              </a>
+              
             </div>
           </li>
         </ol>
       </nav>
 
       <div class="mt-4">
-        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{this.usuario}}</h1>
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Hey there, {{this.usuario}}</h1>
       </div>
 
       <section aria-labelledby="information-heading" class="mt-4">
         <h2 id="information-heading" class="sr-only">Product information</h2>
 
         <div class="flex items-center">
-          <p class="text-lg text-gray-900 sm:text-xl">Email: {{this.email}}</p>
+          <p class="text-lg text-gray-900 sm:text-xl">email: {{this.email}}</p>
 
-          <div class="ml-4 pl-4 border-l border-gray-300">
-            <h2 class="sr-only">Reviews</h2>
-            <div class="flex items-center">
-              
-            </div>
-          </div>
+          
         </div>
 
         <div class="mt-4 space-y-6">
-          <p class="text-base text-gray-500">Bienvenido a tu perfil de usuario. Aquí podrás editar tus credenciales y borrar tu perfil.</p>
+          <p class="text-base text-gray-500">Welcome to your User profile. Here you can change your credentials or delete your account.</p>
         </div>
 
-        <div class="mt-6 flex items-center">
-          <!-- Heroicon name: solid/check -->
-          <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-          </svg>
-          
-        </div>
+        
       </section>
     </div>
 
@@ -89,21 +74,13 @@ Perfil de usuario
           <div class="sm:flex sm:justify-between">
             <!-- Size selector -->
             <fieldset>
-              <legend class="block text-sm font-medium text-gray-700">
-                Cambiar Perfil
-              </legend>
+              
               <div class="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <!-- Active: "ring-2 ring-indigo-500" -->
-                <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
+                  <a class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" href="/users/{{this._id}}/edit">Edit profile</a>
                   
-                  <input type="radio" name="size-choice" value="18L" class="sr-only" aria-labelledby="size-choice-0-label" aria-describedby="size-choice-0-description">
-                  <a href="/users/{{this._id}}/edit">Editar perfil</a>
-                  <p id="size-choice-0-label" class="text-base font-medium text-gray-900">
-                    Editar perfil
-                  </p>
-                  <p id="size-choice-0-description" class="mt-1 text-sm text-gray-500">
-                    Editar credenciales de tu perfil
-                  </p>
+                 
+                  
                   <!--
                     Active: "border", Not Active: "border-2"
                     Checked: "border-indigo-500", Not Checked: "border-transparent"
@@ -112,20 +89,7 @@ Perfil de usuario
                 </label>
 
                 <!-- Active: "ring-2 ring-indigo-500" -->
-                <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
-                  <input type="radio" name="size-choice" value="20L" class="sr-only" aria-labelledby="size-choice-1-label" aria-describedby="size-choice-1-description">
-                  <p id="size-choice-1-label" class="text-base font-medium text-gray-900">
-                    Borrar Perfil
-                  </p>
-                  <p id="size-choice-1-description" class="mt-1 text-sm text-gray-500">
-                    Borrar tu perfil. Este cambio no se puede revertir.
-                  </p>
-                  <!--
-                    Active: "border", Not Active: "border-2"
-                    Checked: "border-indigo-500", Not Checked: "border-transparent"
-                  -->
-                  <div class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
-                </label>
+                
               </div>
             </fieldset>
           </div>
@@ -135,7 +99,7 @@ Perfil de usuario
           </div>
           
         </form>
-        <form method ="POST" action = "/users/{{this._id}}/delete"> <button>Delete user profile</button></form>
+        <form method ="POST" action = "/users/{{this._id}}/delete"> <button class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">Delete user profile</button></form>
       </section>
     </div>
   </div>
