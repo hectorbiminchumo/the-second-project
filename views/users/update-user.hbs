@@ -1,0 +1,27 @@
+<h2>Update your Account</h2>
+
+<h1>Editar player</h1>
+
+Este es el id: {{user._id}}
+
+<form action="/users/{{user._id}}/edit" method="POST">
+	
+    <label>Username</label>
+	<textarea type="text" name="usuario">
+		{{user.usuario}}
+	</textarea>
+
+	<br />
+    <label>Email</label>
+	<textarea type="number" name="email">
+		{{user.email}}
+	</textarea>
+
+	<br />
+
+    <button>
+		Guardar nuevos cambios
+	</button>
+
+
+</form>

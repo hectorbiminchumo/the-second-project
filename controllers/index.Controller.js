@@ -131,6 +131,67 @@ exports.userLogin = async (req,res) => {
 
 }
 
+   //edición del perfil
+
+//Muestra el formulario de edición
+exports.viewEditUser = async(req, res)=>{
+    console.log(req.params)
+    const userID = req.params.userID
+
+    const foundUser = await User.findById(userID)
+    res.render("users/update-user",{
+        user:foundUser
+    })
+}
+
+//Edita el usuario
+
+exports.editUser = async(req, res) =>{
+
+        //ID del user
+    const userID = req.params.userID
+
+        //Los nuevos cambios del formulario
+    const usuario = req.body.usuario
+    const email = req.body.email
+
+    console.log(userID);
+    console.log(usuario, email)
+
+        //realizar la actualización en la baase de datos
+    const updatedUser = await User.findByIdAndUpdate(userID, {usuario, email},
+        {new:true})
+
+        console.log(updatedUser);
+        res.redirect(`/users/profile/${updatedUser._id}`)
+}
+
+
+//Delete user
+exports.deleteUser = async (req, res) => {
+
+    //1. IDENTIFICAR EL USUARIO QUE QUIERO BORRAR
+    const userID = req.params.userID
+
+    //2. REALIZAMOS BORRADO EN BD
+    const deletedUser = await User.findByIdAndDelete(userID)
+
+    console.log(userID);
+    console.log("User deleted", deletedUser);
+
+    //3. REDIRECCION
+    req.session.destroy((error) => {
+        if(error){
+            console.log(error);
+            return
+        }
+        res.redirect("/")
+
+    })
+
+
+}
+
     exports.logout = async (req, res) => {
         req.session.destroy((error) => {
             if(error){

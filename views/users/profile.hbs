@@ -95,7 +95,9 @@ Perfil de usuario
               <div class="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <!-- Active: "ring-2 ring-indigo-500" -->
                 <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
+                  
                   <input type="radio" name="size-choice" value="18L" class="sr-only" aria-labelledby="size-choice-0-label" aria-describedby="size-choice-0-description">
+                  <a href="/users/{{this._id}}/edit">Editar perfil</a>
                   <p id="size-choice-0-label" class="text-base font-medium text-gray-900">
                     Editar perfil
                   </p>
@@ -133,6 +135,7 @@ Perfil de usuario
           </div>
           
         </form>
+        <form method ="POST" action = "/users/{{this._id}}/delete"> <button>Delete user profile</button></form>
       </section>
     </div>
   </div>

@@ -186,7 +186,7 @@ exports.editPlayer = async(req,res) =>{
 
         console.log(updatedPlayer);
 
-        res.redirect(`/players/player-profile/${updatedPlayer._id}`)
+        res.redirect(`/players/${updatedPlayer._id}`)
 
 
 }
@@ -214,7 +214,6 @@ exports.deletePlayer = async (req, res) => {
 
 
 }
-
 
 exports.logoutPlayer = async (req, res) => {
     req.session.destroy((error) => {

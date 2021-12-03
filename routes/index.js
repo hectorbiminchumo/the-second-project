@@ -45,7 +45,7 @@ router.post("/login-user", routeGuard.usuarioNoLoggeado, indexController.userLog
 router.post("/login-player", routeGuard.usuarioNoLoggeado, playersController.playerLogin)
 
 
-//READ
+//READ PLAYER
 //Lectura de jugadores creados
 router.get("/players", playersController.viewPlayerList)
 //Lectura de un jugador especifico
@@ -56,9 +56,17 @@ router.get("/players/:playerID", playersController.viewSinglePlayer)
 router.get("/players/:playerID/edit", playersController.viewEditPlayer)
 router.post("/players/:playerID/edit", playersController.editPlayer)
 
+//EDIT USER
+router.get("/users/:userID/edit", indexController.viewEditUser)
+router.post("/users/:userID/edit", indexController.editUser)
+
+
 
 //DELETE PLAYER
 router.post("/players/:playerID/delete", playersController.deletePlayer)
+
+//DELETE USER
+router.post("/users/:userID/delete", indexController.deleteUser )
 
 //Logout
 router.post("/logout", routeGuard.usuarioLoggeado, indexController.logout)
